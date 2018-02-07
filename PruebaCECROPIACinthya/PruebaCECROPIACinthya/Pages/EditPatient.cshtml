@@ -1,0 +1,63 @@
+﻿
+@page "{id:int}"
+@using PruebaCECROPIACinthya.Models
+@model EditPatientModel
+
+<div class="container">
+    <h3>Edit Patient</h3>
+    <hr />
+    <br />
+    <form method="post">
+        <input asp-for="Patient.ID" type="hidden" />
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.FirstName"></label>
+                <input asp-for="Patient.FirstName" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.LastName"></label>
+                <input asp-for="Patient.LastName" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.DateBirth"></label>
+                <input asp-for="Patient.DateBirth" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.Nationality"></label>
+                <input asp-for="Patient.Nationality" cl class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.Diseases"></label>
+                <input asp-for="Patient.Diseases" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.PhoneNumber"></label>
+                <input asp-for="Patient.PhoneNumber" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label asp-for="Patient.BloodType"></label>
+                <input asp-for="Patient.BloodType" class="form-control" />
+            </div>
+        </div>
+
+        <br />
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <a class="btn btn-default" href="/allpatient">Cancel</a>
+    </form>
+</div>

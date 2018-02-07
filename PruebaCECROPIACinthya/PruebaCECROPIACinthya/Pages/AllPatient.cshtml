@@ -1,0 +1,70 @@
+﻿@page
+@using PruebaCECROPIACinthya.Models
+@model AllPatientModel
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Patient">Create New Patient</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("FirstName")
+            </th>
+            <th>
+                @Html.DisplayName("LastName")
+            </th>
+            <th>
+                @Html.DisplayName("DateBirth")
+            </th>
+            <th>
+                @Html.DisplayName("Nationality")
+            </th>
+            <th>
+                @Html.DisplayName("Diseases")
+            </th>
+            <th>
+                @Html.DisplayName("PhoneNumber")
+            </th>
+            <th>
+                @Html.DisplayName("BloodType")
+            </th>
+
+            <th>Edit | Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PatientList)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diseases)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BloodType)
+            </td>
+            <td>
+                <a asp-page="./EditPatient" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./AllPatient" onclick="return confirm('Are you sure you want to delete this item?');" asp-page-handler="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

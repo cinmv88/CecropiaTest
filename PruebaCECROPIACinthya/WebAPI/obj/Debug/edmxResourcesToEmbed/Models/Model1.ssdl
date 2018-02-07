@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaCECROPIACinthyaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BloodTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="BloodType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateBirth" Type="date" />
+    <Property Name="Nationality" Type="int" />
+    <Property Name="Diseases" Type="varchar(max)" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="BloodType" Type="int" />
+  </EntityType>
+  <Association Name="FK__Patients__BloodT__0519C6AF">
+    <End Role="BloodTypes" Type="Self.BloodTypes" Multiplicity="0..1" />
+    <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BloodTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="BloodType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Patients__Nation__060DEAE8">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="Nationality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddPatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+    <Parameter Name="DateBirth" Type="date" Mode="In" />
+    <Parameter Name="Nationality" Type="int" Mode="In" />
+    <Parameter Name="Diseases" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="BloodType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SearchPatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdatePatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="ID" Type="varchar" Mode="In" />
+    <Parameter Name="DateBirth" Type="date" Mode="In" />
+    <Parameter Name="Nationality" Type="int" Mode="In" />
+    <Parameter Name="Diseases" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PhoneNumber" Type="varchar" Mode="In" />
+    <Parameter Name="BloodType" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="PruebaCECROPIACinthyaModelStoreContainer">
+    <EntitySet Name="BloodTypes" EntityType="Self.BloodTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Patients__BloodT__0519C6AF" Association="Self.FK__Patients__BloodT__0519C6AF">
+      <End Role="BloodTypes" EntitySet="BloodTypes" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Patients__Nation__060DEAE8" Association="Self.FK__Patients__Nation__060DEAE8">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

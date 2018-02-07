@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PruebaCECROPIACinthyaModelStoreContainer" CdmEntityContainer="PruebaCECROPIACinthyaEntities">
+    <EntitySetMapping Name="BloodTypes">
+      <EntityTypeMapping TypeName="PruebaCECROPIACinthyaModel.BloodType">
+        <MappingFragment StoreEntitySet="BloodTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BloodType1" ColumnName="BloodType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="PruebaCECROPIACinthyaModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="PruebaCECROPIACinthyaModel.Patient">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Diseases" ColumnName="Diseases" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddPatient" FunctionName="PruebaCECROPIACinthyaModel.Store.AddPatient" />
+    <FunctionImportMapping FunctionImportName="DeletePatient" FunctionName="PruebaCECROPIACinthyaModel.Store.DeletePatient" />
+    <FunctionImportMapping FunctionImportName="SearchPatient" FunctionName="PruebaCECROPIACinthyaModel.Store.SearchPatient">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="PruebaCECROPIACinthyaModel.SearchPatient_Result">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DateBirth" ColumnName="DateBirth" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Diseases" ColumnName="Diseases" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdatePatient" FunctionName="PruebaCECROPIACinthyaModel.Store.UpdatePatient" />
+    <FunctionImportMapping FunctionImportName="AddPatient1" FunctionName="PruebaCECROPIACinthyaModel.Store.AddPatient" />
+    <FunctionImportMapping FunctionImportName="DeletePatient1" FunctionName="PruebaCECROPIACinthyaModel.Store.DeletePatient" />
+    <FunctionImportMapping FunctionImportName="SearchPatient1" FunctionName="PruebaCECROPIACinthyaModel.Store.SearchPatient" />
+    <FunctionImportMapping FunctionImportName="UpdatePatient1" FunctionName="PruebaCECROPIACinthyaModel.Store.UpdatePatient" />
+  </EntityContainerMapping>
+</Mapping>

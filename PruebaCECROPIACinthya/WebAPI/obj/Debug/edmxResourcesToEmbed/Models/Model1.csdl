@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PruebaCECROPIACinthyaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BloodType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="BloodType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__BloodT__0519C6AF" FromRole="BloodTypes" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Patients" Relationship="Self.FK__Patients__Nation__060DEAE8" FromRole="Countries" ToRole="Patients" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateBirth" Type="DateTime" Precision="0" />
+    <Property Name="Nationality" Type="Int32" />
+    <Property Name="Diseases" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BloodType" Type="Int32" />
+    <NavigationProperty Name="BloodType1" Relationship="Self.FK__Patients__BloodT__0519C6AF" FromRole="Patients" ToRole="BloodTypes" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__Patients__Nation__060DEAE8" FromRole="Patients" ToRole="Countries" />
+  </EntityType>
+  <Association Name="FK__Patients__BloodT__0519C6AF">
+    <End Role="BloodTypes" Type="Self.BloodType" Multiplicity="0..1" />
+    <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BloodTypes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="BloodType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Patients__Nation__060DEAE8">
+    <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+    <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Patients">
+        <PropertyRef Name="Nationality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PruebaCECROPIACinthyaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BloodTypes" EntityType="Self.BloodType" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <AssociationSet Name="FK__Patients__BloodT__0519C6AF" Association="Self.FK__Patients__BloodT__0519C6AF">
+      <End Role="BloodTypes" EntitySet="BloodTypes" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Patients__Nation__060DEAE8" Association="Self.FK__Patients__Nation__060DEAE8">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Patients" EntitySet="Patients" />
+    </AssociationSet>
+    <FunctionImport Name="AddPatient">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="DateBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Nationality" Mode="In" Type="Int32" />
+      <Parameter Name="Diseases" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="BloodType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePatient">
+      <Parameter Name="ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchPatient" ReturnType="Collection(PruebaCECROPIACinthyaModel.SearchPatient_Result)">
+      <Parameter Name="ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePatient">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="DateBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Nationality" Mode="In" Type="Int32" />
+      <Parameter Name="Diseases" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="BloodType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AddPatient1">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="DateBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Nationality" Mode="In" Type="Int32" />
+      <Parameter Name="Diseases" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="BloodType" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePatient1">
+      <Parameter Name="ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SearchPatient1">
+      <Parameter Name="ID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdatePatient1">
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="DateBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Nationality" Mode="In" Type="Int32" />
+      <Parameter Name="Diseases" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="BloodType" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SearchPatient_Result">
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ID" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DateBirth" Nullable="true" />
+    <Property Type="Int32" Name="Nationality" Nullable="true" />
+    <Property Type="String" Name="Diseases" Nullable="true" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="BloodType" Nullable="true" />
+  </ComplexType>
+</Schema>
