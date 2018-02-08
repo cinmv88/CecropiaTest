@@ -23,7 +23,7 @@ namespace WebAPI.Models
         public string PhoneNumber { get; set; }
         public Nullable<int> BloodType { get; set; }
     
-        public virtual BloodType BloodType1 { get; set; }
-        public virtual Country Country { get; set; }
+        //public virtual BloodType BloodType1 { get; set; }
+        //public virtual Country Country { get; set; }
     }
 }

@@ -7,12 +7,6 @@ namespace PruebaCECROPIACinthya.Pages
 {
     public class EditPatientModel : PageModel
     {
-        DatabaseContext _Context;
-        public EditPatientModel(DatabaseContext databasecontext)
-        {
-            _Context = databasecontext;
-        }
-
 
         [BindProperty]
         public Patient Patient { get; set; }
@@ -21,11 +15,9 @@ namespace PruebaCECROPIACinthya.Pages
         {
             if (id != null)
             {
-                var data = (from patient in _Context.PatientTB
-                            where patient.ID.Equals(id)
-                            select patient).SingleOrDefault();
+				PatientClient pc = new PatientClient();
+				Patient = pc.findID(id);
 
-                Patient = data;
             }
         }
 
@@ -38,12 +30,12 @@ namespace PruebaCECROPIACinthya.Pages
                 return Page();
             }
 
-            _Context.Entry(patient).Property(x => x.ID).IsModified = true;
-         /*   _Context.Entry(patient).Property(x => x.Phoneno).IsModified = true;
-            _Context.Entry(patient).Property(x => x.Address).IsModified = true;
-            _Context.Entry(patient).Property(x => x.City).IsModified = true;
-            _Context.Entry(patient).Property(x => x.Country).IsModified = true;*/
-            _Context.SaveChanges();
+			PatientClient pc = new PatientClient();
+			pc.Edit(patient);
+
+            /*_Context.Entry(patient).Property(x => x.ID).IsModified = true;     
+            _Context.SaveChanges();*/
+
             return RedirectToPage("AllPatient");
         }
     }

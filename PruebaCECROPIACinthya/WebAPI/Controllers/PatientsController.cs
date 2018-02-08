@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using WebAPI.Models;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
@@ -24,9 +25,9 @@ namespace WebAPI.Controllers
 
         // GET: api/Patients/5
         [ResponseType(typeof(Patient))]
-        public IHttpActionResult GetPatient(string id)
+        public async Task<IHttpActionResult> GetPatient(string id)
         {
-            Patient patient = db.Patients.Find(id);
+            Patient patient = await db.Patients.FindAsync(id);//db.SearchPatient1(id);
             if (patient == null)
             {
                 return NotFound();
@@ -37,7 +38,7 @@ namespace WebAPI.Controllers
 
         // PUT: api/Patients/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPatient(string id, Patient patient)
+        public async Task<IHttpActionResult> PutPatient(string id, Patient patient)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +54,9 @@ namespace WebAPI.Controllers
 
             try
             {
-                db.SaveChanges();
+				db.UpdatePatient1(patient.FirstName, patient.LastName, patient.ID, patient.DateBirth, patient.Nationality,
+					patient.Diseases, patient.PhoneNumber, patient.BloodType);
+                await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -72,7 +75,7 @@ namespace WebAPI.Controllers
 
         // POST: api/Patients
         [ResponseType(typeof(Patient))]
-        public IHttpActionResult PostPatient(Patient patient)
+		public async Task<IHttpActionResult> PostPatient(Patient patient)
         {
             if (!ModelState.IsValid)
             {
@@ -83,8 +86,11 @@ namespace WebAPI.Controllers
 
             try
             {
-                db.SaveChanges();
-            }
+				db.AddPatient1(patient.FirstName, patient.LastName, patient.ID, patient.DateBirth, patient.Nationality,
+					patient.Diseases, patient.PhoneNumber, patient.BloodType);
+				await db.SaveChangesAsync();
+
+			}
             catch (DbUpdateException)
             {
                 if (PatientExists(patient.ID))
@@ -102,7 +108,7 @@ namespace WebAPI.Controllers
 
         // DELETE: api/Patients/5
         [ResponseType(typeof(Patient))]
-        public IHttpActionResult DeletePatient(string id)
+        public async Task<IHttpActionResult> DeletePatient(string id)
         {
             Patient patient = db.Patients.Find(id);
             if (patient == null)
@@ -111,7 +117,9 @@ namespace WebAPI.Controllers
             }
 
             db.Patients.Remove(patient);
-            db.SaveChanges();
+
+			db.DeletePatient1(id);
+            await db.SaveChangesAsync();
 
             return Ok(patient);
         }

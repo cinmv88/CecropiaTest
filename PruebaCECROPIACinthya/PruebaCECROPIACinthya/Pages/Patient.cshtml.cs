@@ -6,11 +6,15 @@ namespace PruebaCECROPIACinthya.Pages
 {
     public class PatientModel : PageModel
     {
-        DatabaseContext _Context;
-        public PatientModel(DatabaseContext databasecontext)
+		//DatabaseContext _Context;
+		/*public PatientModel(DatabaseContext databasecontext)
         {
             _Context = databasecontext;
-        }
+        }*/
+
+		public PatientModel()
+		{
+		}
 
         [BindProperty]
         public Patient Patient { get; set; }
@@ -20,19 +24,22 @@ namespace PruebaCECROPIACinthya.Pages
 
         }
 
-        public ActionResult OnPost()
+		[HttpPost]
+		public ActionResult OnPost()
         {
-            var patient = Patient;
-            if (!ModelState.IsValid)
-            {
-                return Page(); // return page
-            }
+			var patient = Patient;
 
-            patient.ID = "123";
-            var result = _Context.Add(patient);
-            _Context.SaveChanges(); // Saving Data in database
+			if (!ModelState.IsValid) //validate the dataanotations defined for the model
+			{
+				return Page(); // return page
+			}
+	
+			PatientClient pc = new PatientClient();
+			pc.Create(patient);
+			//  var result = _Context.Add(patient);
+			//_Context.SaveChanges(); // Saving Data in database
 
-            return RedirectToPage("AllPatient");
-        }
+			return RedirectToPage("AllPatient");
+		}
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EventLog</name>
+    </assembly>
+    <members>
+        <member name="M:EventLog.FileLog.GetTodaysFileName(System.String,System.String)">
+            <summary>
+            Builds a filename based on a prefix, the current date and a file extension
+            </summary>
+            <param name="prefix">The prefix to put in front of the date</param>
+            <param name="extension">The file extension</param>
+            <returns></returns>
+        </member>
+        <member name="M:EventLog.FileLog.LogText(System.String,System.String,System.Boolean)">
+            <summary>
+            Log text into a text file
+            </summary>
+            <param name="fullFileName">The name of the file</param>
+            <param name="logMessage">The text to log</param>
+            <param name="useDefaultLogTimeHeader">true, if you want to add default time info in front of the text to be logged</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

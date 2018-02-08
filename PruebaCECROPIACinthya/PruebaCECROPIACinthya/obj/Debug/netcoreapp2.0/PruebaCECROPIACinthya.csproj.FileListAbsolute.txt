@@ -9,3 +9,15 @@ C:\Users\gvega\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIA
 C:\Users\gvega\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.pdb
 C:\Users\gvega\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.dll
 C:\Users\gvega\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.pdb
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.deps.json
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.runtimeconfig.json
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.runtimeconfig.dev.json
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.dll
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.pdb
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.csprojResolveAssemblyReference.cache
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.csproj.CoreCompileInputs.cache
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.AssemblyInfoInputs.cache
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.AssemblyInfo.cs
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.dll
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\obj\Debug\netcoreapp2.0\PruebaCECROPIACinthya.pdb
+C:\Users\cmoralesv\Documents\Visual Studio 2017\PruebaCECROPIACinthya\PruebaCECROPIACinthya\bin\Debug\netcoreapp2.0\PruebaCECROPIACinthya.dll.config
